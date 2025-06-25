@@ -14,4 +14,4 @@ try:
     elif ans == 0:
         print("The result is positive and negative.")
 except:
-    print("Invalid input")
+    print("Invalid input.")
