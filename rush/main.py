@@ -6,7 +6,7 @@ def main():
     board = """\
 ....
 .K..
-.P..
+.6..
 .R..\
 """
     checkmate(board)
