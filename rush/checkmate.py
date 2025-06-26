@@ -113,7 +113,7 @@ def is_rook_check(king_pos, column_num, row_num, board_location):
 
 def is_bishop_check(king_pos, column_num, row_num, board_location):
     king_row, king_column = king_pos
-    for i in range(1,row_num):
+    for i in range(1, row_num):
         # Check main diagonal (bottom-right)
         if 0 <= king_row + i < row_num and 0 <= king_column + i < column_num:
             if board_location [king_row + i][king_column + i] == 'B' or board_location [king_row + i][king_column + i] == 'Q':
