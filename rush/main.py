@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from checkmate import *
+from checkmate import checkmate
 
 def main():
     board = """\

@@ -8,22 +8,19 @@ def checkmate(board):
     count_king(board_column, board_row, board_location) #check how many king
     king = is_king_check(board, king_pos, board_column, board_row, board_location)
     if king == True:
-        print("Success")
+        return print("Success")
     else:
-        print("Fail")
+        return print("Fail")
 
 def coordinated_position(board):
     board_location = [] #big list
     chess_location = [] #small list
-    for location in board: #add try except if board is none.
+    for location in board:
         if location == "\n":
             board_location.append(chess_location)
             chess_location = []
-        elif location == '.' or location == 'K' or location == 'P' or location == 'Q' or location == 'R' or location == 'B':
-            chess_location.append(location)
         else:
-            print("Error: Invalid board input.")
-            quit()
+            chess_location.append(location)
     board_location.append(chess_location)
     #print(f"This board format is {board_location}")
     return board_location
