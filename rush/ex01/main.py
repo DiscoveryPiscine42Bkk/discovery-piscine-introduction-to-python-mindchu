@@ -6,9 +6,9 @@ from checkmate import checkmate
 def main():
     if len(sys.argv) == 1:
         return print("Error: No chessboard input")
-    for i in range(1, len(sys.argv)):
+    for argv in sys.argv[1:]:
         try:
-            file = open(sys.argv[i], "r")
+            file = open(argv, "r")
             board = file.read()
             checkmate(board)
             file.close()

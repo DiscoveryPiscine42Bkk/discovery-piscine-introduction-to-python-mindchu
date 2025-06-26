@@ -12,11 +12,24 @@ def checkmate(board):
         return print("Error: Too many king")
     elif count == 0:
         return print("Error: No king on the board")
+    put_board(board_location)
     king = is_king_check(king_pos, column_num, row_num, board_location)
     if king == True:
         return print("Success")
     else:
         return print("Fail")
+
+def put_board(board_location):
+    print("Chessboard:")
+    for row in board_location:
+        first_col = 0
+        for col in row:
+            if first_col == 0:
+                first_col = 1
+                print(col, end="")
+            else:
+                print(" " + col, end="")
+        print()
 
 def coordinated_position(board):
     board_location = [] #big list
@@ -30,7 +43,6 @@ def coordinated_position(board):
             chess_location.append(location)
     # do not need this line as the board in file have \n as the last line
     # board_location.append(chess_location)
-    # print(f"This board format is {board_location}")
     return board_location
 
 def check_format(row_num, board_location):
@@ -46,8 +58,6 @@ def check_format(row_num, board_location):
     #check column is equal to row
     if column_num != row_num:
         return True
-    #print(f"This board has {row_num} row.")
-    #print(f"This board has {column_num} column.")
     return False
 
 def find_king(column_num, row_num, board_location):
@@ -66,12 +76,18 @@ def count_king(column_num, row_num, board_location):
 
 def is_king_check(king_pos, column_num, row_num, board_location):
     pawn = is_pawn_check(king_pos, column_num, row_num, board_location)
-    rook = is_rook_check(king_pos, column_num, row_num, board_location)
-    bishop = is_bishop_check(king_pos, column_num, row_num, board_location)
-    if pawn == True or rook == True or bishop == True:
+    if pawn == True:
+        print("King is in check by Pawn")
         return True
-    else:
-        return False
+    rook = is_rook_check(king_pos, column_num, row_num, board_location)
+    if rook == True:
+        print("King is in check by Rook or Queen")
+        return True
+    bishop = is_bishop_check(king_pos, column_num, row_num, board_location)
+    if bishop == True:
+        print("King is in check by Bishop or Queen")
+        return True
+    return False
 
 def is_pawn_check(king_pos, column_num, row_num, board_location):
     king_row, king_column = king_pos
